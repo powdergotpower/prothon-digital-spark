@@ -1,13 +1,14 @@
 import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -45,22 +46,24 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
-            <Button
-              size="lg"
-              onClick={() => scrollToSection("apps")}
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8 group"
-            >
-              Explore Our Apps
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => scrollToSection("about")}
-              className="text-lg px-8 border-2 border-primary text-primary-foreground hover:bg-primary/10"
-            >
-              Learn More
-            </Button>
+            <Link to="/apps">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8 group"
+              >
+                Explore Our Apps
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 border-2 border-primary text-primary-foreground hover:bg-primary/10"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-fade-in">
@@ -89,7 +92,7 @@ const Hero = () => {
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <button
-          onClick={() => scrollToSection("about")}
+          onClick={scrollToBottom}
           className="text-primary-foreground opacity-50 hover:opacity-100 transition-opacity"
         >
           <svg

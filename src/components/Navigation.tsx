@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +17,11 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav
@@ -33,40 +33,57 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-gradient">Prothon</div>
+          <Link to="/" className="text-2xl font-bold text-gradient">
+            Prothon
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-foreground hover:text-accent transition-colors"
+            <Link
+              to="/about"
+              className={`transition-colors ${
+                isActive("/about")
+                  ? "text-accent font-medium"
+                  : "text-foreground hover:text-accent"
+              }`}
             >
               About
-            </button>
-            <button
-              onClick={() => scrollToSection("team")}
-              className="text-foreground hover:text-accent transition-colors"
+            </Link>
+            <Link
+              to="/team"
+              className={`transition-colors ${
+                isActive("/team")
+                  ? "text-accent font-medium"
+                  : "text-foreground hover:text-accent"
+              }`}
             >
               Team
-            </button>
-            <button
-              onClick={() => scrollToSection("apps")}
-              className="text-foreground hover:text-accent transition-colors"
+            </Link>
+            <Link
+              to="/apps"
+              className={`transition-colors ${
+                isActive("/apps")
+                  ? "text-accent font-medium"
+                  : "text-foreground hover:text-accent"
+              }`}
             >
               Apps
-            </button>
-            <button
-              onClick={() => scrollToSection("feedback")}
-              className="text-foreground hover:text-accent transition-colors"
+            </Link>
+            <Link
+              to="/contact"
+              className={`transition-colors ${
+                isActive("/contact")
+                  ? "text-accent font-medium"
+                  : "text-foreground hover:text-accent"
+              }`}
             >
               Contact
-            </button>
-            <Button
-              onClick={() => scrollToSection("feedback")}
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
-            >
-              Get Started
-            </Button>
+            </Link>
+            <Link to="/contact">
+              <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -82,36 +99,55 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-slide-up">
             <div className="flex flex-col gap-4">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-foreground hover:text-accent transition-colors text-left"
+              <Link
+                to="/about"
+                onClick={closeMobileMenu}
+                className={`transition-colors text-left ${
+                  isActive("/about")
+                    ? "text-accent font-medium"
+                    : "text-foreground hover:text-accent"
+                }`}
               >
                 About
-              </button>
-              <button
-                onClick={() => scrollToSection("team")}
-                className="text-foreground hover:text-accent transition-colors text-left"
+              </Link>
+              <Link
+                to="/team"
+                onClick={closeMobileMenu}
+                className={`transition-colors text-left ${
+                  isActive("/team")
+                    ? "text-accent font-medium"
+                    : "text-foreground hover:text-accent"
+                }`}
               >
                 Team
-              </button>
-              <button
-                onClick={() => scrollToSection("apps")}
-                className="text-foreground hover:text-accent transition-colors text-left"
+              </Link>
+              <Link
+                to="/apps"
+                onClick={closeMobileMenu}
+                className={`transition-colors text-left ${
+                  isActive("/apps")
+                    ? "text-accent font-medium"
+                    : "text-foreground hover:text-accent"
+                }`}
               >
                 Apps
-              </button>
-              <button
-                onClick={() => scrollToSection("feedback")}
-                className="text-foreground hover:text-accent transition-colors text-left"
+              </Link>
+              <Link
+                to="/contact"
+                onClick={closeMobileMenu}
+                className={`transition-colors text-left ${
+                  isActive("/contact")
+                    ? "text-accent font-medium"
+                    : "text-foreground hover:text-accent"
+                }`}
               >
                 Contact
-              </button>
-              <Button
-                onClick={() => scrollToSection("feedback")}
-                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 w-full"
-              >
-                Get Started
-              </Button>
+              </Link>
+              <Link to="/contact" onClick={closeMobileMenu}>
+                <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 w-full">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </div>
         )}
