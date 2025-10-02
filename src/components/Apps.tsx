@@ -60,67 +60,73 @@ const Apps = () => {
   ];
 
   return (
-    <section id="apps" className="py-20 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our <span className="text-gradient">Applications</span>
+    <section id="apps" className="py-24 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-40 right-20 w-72 h-72 bg-accent rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-40 left-20 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "3s" }} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10" ref={sectionRef}>
+        <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Our <span className="text-gradient text-glow">Applications</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
             Innovative solutions designed to enhance productivity and user experience
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-16">
           {apps.map((app, index) => (
             <Card
               key={index}
               data-direction={index % 2}
-              className="app-card opacity-0 overflow-hidden hover-lift border-border/50 bg-card/80 backdrop-blur-sm"
+              className="app-card opacity-0 overflow-hidden hover-lift hover-glow border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-2xl hover:border-accent/50 transition-all duration-700"
               style={{
                 animationDelay: `${index * 200}ms`,
               }}
             >
               <CardContent className="p-0">
-                <div className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8`}>
+                <div className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
                   <div className="md:w-1/2">
                     <div className="relative overflow-hidden aspect-video md:aspect-auto md:h-full group">
                       <img
                         src={app.image}
                         alt={app.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-125 group-hover:rotate-2"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
 
-                  <div className="md:w-1/2 p-8 flex flex-col justify-center">
-                    <div className="inline-flex items-center gap-2 text-sm text-accent font-medium mb-3">
-                      <span className="px-3 py-1 bg-accent/10 rounded-full">{app.category}</span>
+                  <div className="md:w-1/2 p-10 lg:p-12 flex flex-col justify-center">
+                    <div className="inline-flex items-center gap-2 text-sm font-semibold mb-4">
+                      <span className="px-4 py-1.5 bg-gradient-to-r from-accent/20 to-primary/20 border border-accent/30 rounded-full text-accent">{app.category}</span>
                     </div>
 
-                    <h3 className="text-3xl font-bold mb-4">{app.name}</h3>
-                    <p className="text-muted-foreground mb-6 text-lg">{app.description}</p>
+                    <h3 className="text-4xl md:text-5xl font-extrabold mb-5 text-foreground">{app.name}</h3>
+                    <p className="text-foreground/70 mb-8 text-lg md:text-xl leading-relaxed">{app.description}</p>
 
-                    <div className="flex items-center gap-6 mb-6">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                        <span className="font-semibold">{app.rating}</span>
+                    <div className="flex items-center gap-8 mb-8">
+                      <div className="flex items-center gap-2 bg-yellow-500/10 px-4 py-2 rounded-full">
+                        <Star className="w-6 h-6 text-yellow-500 fill-yellow-500" />
+                        <span className="font-bold text-lg">{app.rating}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Download className="w-5 h-5 text-muted-foreground" />
-                        <span className="text-muted-foreground">{app.downloads}</span>
+                      <div className="flex items-center gap-2 bg-foreground/5 px-4 py-2 rounded-full">
+                        <Download className="w-6 h-6 text-accent" />
+                        <span className="font-bold text-lg text-foreground/80">{app.downloads}</span>
                       </div>
                     </div>
 
-                    <div className="flex gap-4">
-                      <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 group">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white shadow-xl hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition-all duration-500 group font-semibold">
                         Download Now
-                        <Download className="ml-2 w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                        <Download className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
                       </Button>
-                      <Button variant="outline" className="group">
+                      <Button size="lg" variant="outline" className="group font-semibold">
                         Learn More
-                        <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <ExternalLink className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                       </Button>
                     </div>
                   </div>

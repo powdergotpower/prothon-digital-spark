@@ -32,13 +32,19 @@ const Feedback = () => {
   };
 
   return (
-    <section id="feedback" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Get in <span className="text-gradient">Touch</span>
+    <section id="feedback" className="py-24 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-40 w-80 h-80 bg-accent rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-20 left-40 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Get in <span className="text-gradient text-glow">Touch</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
             Have questions, feedback, or ideas? We'd love to hear from you!
           </p>
         </div>

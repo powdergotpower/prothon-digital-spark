@@ -51,13 +51,19 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="text-gradient">Prothon</span>
+    <section id="about" className="py-24 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10" ref={sectionRef}>
+        <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+            About <span className="text-gradient text-glow">Prothon</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
             Prothon is a technology powerhouse dedicated to creating innovative
             solutions that drive business growth. We specialize in developing,
             deploying, and maintaining high-quality applications that connect
@@ -71,28 +77,28 @@ const About = () => {
             return (
               <Card
                 key={index}
-                className="mission-card opacity-0 hover-lift border-border/50 bg-card/50 backdrop-blur-sm"
+                className="mission-card opacity-0 hover-lift hover-glow border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-xl hover:border-accent/50 transition-all duration-500"
                 style={{
                   animationDelay: `${index * 150}ms`,
                 }}
               >
-                <CardContent className="p-8">
-                  <div className="mb-4 inline-flex p-3 rounded-xl bg-gradient-to-br from-primary to-accent">
-                    <Icon className="w-8 h-8 text-primary-foreground" />
+                <CardContent className="p-10">
+                  <div className="mb-6 inline-flex p-4 rounded-2xl bg-gradient-to-br from-primary to-accent shadow-lg animate-float" style={{ animationDelay: `${index * 0.5}s` }}>
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">{mission.title}</h3>
-                  <p className="text-muted-foreground">{mission.description}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">{mission.title}</h3>
+                  <p className="text-lg text-foreground/70 leading-relaxed">{mission.description}</p>
                 </CardContent>
               </Card>
             );
           })}
         </div>
 
-        <div className="mt-16 max-w-4xl mx-auto">
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
-            <CardContent className="p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-              <p className="text-lg text-muted-foreground">
+        <div className="mt-20 max-w-4xl mx-auto animate-scale-in" style={{ animationDelay: "0.8s" }}>
+          <Card className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-accent/30 shadow-2xl hover-glow backdrop-blur-sm">
+            <CardContent className="p-12 text-center">
+              <h3 className="text-3xl md:text-4xl font-extrabold mb-6 text-gradient">Our Vision</h3>
+              <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
                 To become the leading technology partner for businesses worldwide,
                 empowering them with innovative solutions that drive digital
                 transformation and sustainable growth.

@@ -13,60 +13,64 @@ const Hero = () => {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden floating-particles"
       style={{
-        backgroundImage: `linear-gradient(rgba(10, 14, 39, 0.8), rgba(10, 14, 39, 0.9)), url(${heroBackground})`,
+        backgroundImage: `linear-gradient(rgba(5, 10, 30, 0.92), rgba(10, 15, 45, 0.95)), url(${heroBackground})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background opacity-50" />
+      {/* Animated gradient overlay */}
+      <div className="absolute inset-0 bg-animated-gradient opacity-20" />
+      
+      {/* Bottom fade to blend with content */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80" />
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm text-primary-foreground">
+          <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 mb-8 animate-fade-in animate-pulse-slow">
+            <Sparkles className="w-5 h-5 text-accent animate-float" />
+            <span className="text-sm font-medium text-white/90">
               Building the future of technology
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
-            <span className="text-gradient">Prothon</span>
+          <h1 className="text-6xl md:text-8xl font-extrabold mb-8 animate-slide-up">
+            <span className="text-gradient text-glow">Prothon</span>
             <br />
-            <span className="text-primary-foreground">
+            <span className="text-white drop-shadow-2xl">
               Innovation in Every Line of Code
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-slide-up max-w-2xl mx-auto">
+          <p className="text-xl md:text-3xl text-white/80 mb-10 animate-slide-up font-light leading-relaxed max-w-3xl mx-auto drop-shadow-lg" style={{ animationDelay: "0.2s" }}>
             We build, deploy, and maintain cutting-edge applications that
             transform businesses and connect people worldwide.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center animate-scale-in" style={{ animationDelay: "0.4s" }}>
             <Link to="/apps">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8 group"
+                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white text-lg px-10 py-7 shadow-2xl hover:shadow-[0_0_50px_rgba(168,85,247,0.6)] transition-all duration-500 group font-semibold"
               >
                 Explore Our Apps
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
               </Button>
             </Link>
             <Link to="/about">
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-8 border-2 border-primary text-primary-foreground hover:bg-primary/10"
+                className="text-lg px-10 py-7 border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 font-semibold"
               >
                 Learn More
               </Button>
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-fade-in">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-fade-in" style={{ animationDelay: "0.6s" }}>
             {[
               { number: "50+", label: "Projects Delivered" },
               { number: "100K+", label: "Active Users" },
@@ -75,28 +79,28 @@ const Hero = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="text-center"
+                className="text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover-lift hover-glow"
                 style={{
-                  animationDelay: `${index * 100}ms`,
+                  animationDelay: `${0.8 + index * 0.1}s`,
                 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
+                <div className="text-4xl md:text-5xl font-extrabold text-gradient text-glow mb-3">
                   {stat.number}
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-sm md:text-base text-white/70 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
         <button
           onClick={scrollToBottom}
-          className="text-primary-foreground opacity-50 hover:opacity-100 transition-opacity"
+          className="text-white/60 hover:text-white transition-all duration-300 hover:scale-110 drop-shadow-lg"
         >
           <svg
-            className="w-6 h-6"
+            className="w-8 h-8"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
