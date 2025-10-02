@@ -42,7 +42,7 @@ const Feedback = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Get in <span className="text-gradient text-glow">Touch</span>
+            Get in <span className="text-gradient">Touch</span>
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
             Have questions, feedback, or ideas? We'd love to hear from you!

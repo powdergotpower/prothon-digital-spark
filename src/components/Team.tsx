@@ -65,7 +65,7 @@ const Team = () => {
       <div className="container mx-auto px-4 relative z-10" ref={sectionRef}>
         <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Meet Our <span className="text-gradient text-glow">Team</span>
+            Meet Our <span className="text-gradient">Team</span>
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
             Talented individuals united by a passion for technology and innovation
@@ -76,7 +76,7 @@ const Team = () => {
           {team.map((member, index) => (
             <Card
               key={index}
-              className="team-card opacity-0 hover-lift hover-glow overflow-hidden border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-xl hover:border-accent/50 transition-all duration-700 group"
+              className="team-card opacity-0 hover-lift overflow-hidden border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-lg hover:border-accent/50 transition-all duration-300 group"
               style={{
                 animationDelay: `${index * 150}ms`,
               }}

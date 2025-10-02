@@ -70,7 +70,7 @@ const Apps = () => {
       <div className="container mx-auto px-4 relative z-10" ref={sectionRef}>
         <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Our <span className="text-gradient text-glow">Applications</span>
+            Our <span className="text-gradient">Applications</span>
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
             Innovative solutions designed to enhance productivity and user experience
@@ -82,7 +82,7 @@ const Apps = () => {
             <Card
               key={index}
               data-direction={index % 2}
-              className="app-card opacity-0 overflow-hidden hover-lift hover-glow border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-2xl hover:border-accent/50 transition-all duration-700"
+              className="app-card opacity-0 overflow-hidden hover-lift border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-lg hover:border-accent/50 transition-all duration-300"
               style={{
                 animationDelay: `${index * 200}ms`,
               }}
@@ -120,7 +120,7 @@ const Apps = () => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white shadow-xl hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition-all duration-500 group font-semibold">
+                      <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 group font-semibold">
                         Download Now
                         <Download className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
                       </Button>

@@ -37,14 +37,14 @@ const Hero = () => {
           </div>
 
           <h1 className="text-6xl md:text-8xl font-extrabold mb-8 animate-slide-up">
-            <span className="text-gradient text-glow">Prothon</span>
+            <span className="text-gradient">Prothon</span>
             <br />
-            <span className="text-white drop-shadow-2xl">
+            <span className="text-white">
               Innovation in Every Line of Code
             </span>
           </h1>
 
-          <p className="text-xl md:text-3xl text-white/80 mb-10 animate-slide-up font-light leading-relaxed max-w-3xl mx-auto drop-shadow-lg" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl md:text-2xl text-white/90 mb-10 animate-slide-up font-light leading-relaxed max-w-3xl mx-auto" style={{ animationDelay: "0.2s" }}>
             We build, deploy, and maintain cutting-edge applications that
             transform businesses and connect people worldwide.
           </p>
@@ -53,7 +53,7 @@ const Hero = () => {
             <Link to="/apps">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white text-lg px-10 py-7 shadow-2xl hover:shadow-[0_0_50px_rgba(168,85,247,0.6)] transition-all duration-500 group font-semibold"
+                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white text-lg px-10 py-7 shadow-lg hover:shadow-xl transition-all duration-300 group font-semibold"
               >
                 Explore Our Apps
                 <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
@@ -63,7 +63,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-10 py-7 border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 font-semibold"
+                className="text-lg px-10 py-7 border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
               >
                 Learn More
               </Button>
@@ -79,12 +79,12 @@ const Hero = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover-lift hover-glow"
+                className="text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover-lift transition-all duration-300"
                 style={{
                   animationDelay: `${0.8 + index * 0.1}s`,
                 }}
               >
-                <div className="text-4xl md:text-5xl font-extrabold text-gradient text-glow mb-3">
+                <div className="text-4xl md:text-5xl font-extrabold text-gradient mb-3">
                   {stat.number}
                 </div>
                 <div className="text-sm md:text-base text-white/70 font-medium">{stat.label}</div>

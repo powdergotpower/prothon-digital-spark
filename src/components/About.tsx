@@ -61,7 +61,7 @@ const About = () => {
       <div className="container mx-auto px-4 relative z-10" ref={sectionRef}>
         <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-            About <span className="text-gradient text-glow">Prothon</span>
+            About <span className="text-gradient">Prothon</span>
           </h2>
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
             Prothon is a technology powerhouse dedicated to creating innovative
@@ -77,7 +77,7 @@ const About = () => {
             return (
               <Card
                 key={index}
-                className="mission-card opacity-0 hover-lift hover-glow border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-xl hover:border-accent/50 transition-all duration-500"
+                className="mission-card opacity-0 hover-lift border-2 border-border/30 bg-card/70 backdrop-blur-md shadow-lg hover:border-accent/50 transition-all duration-300"
                 style={{
                   animationDelay: `${index * 150}ms`,
                 }}
@@ -95,7 +95,7 @@ const About = () => {
         </div>
 
         <div className="mt-20 max-w-4xl mx-auto animate-scale-in" style={{ animationDelay: "0.8s" }}>
-          <Card className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-accent/30 shadow-2xl hover-glow backdrop-blur-sm">
+          <Card className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border-2 border-accent/30 shadow-lg backdrop-blur-sm hover-lift transition-all duration-300">
             <CardContent className="p-12 text-center">
               <h3 className="text-3xl md:text-4xl font-extrabold mb-6 text-gradient">Our Vision</h3>
               <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
